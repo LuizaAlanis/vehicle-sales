@@ -1,34 +1,36 @@
 # :car: Vehicle Sales
 
-## :octocat: the Clone project
+## :octocat: Clone the project
 ```shell
 git@github.com:LuizaAlanis/vehicle-sales.git
 ```
 
-## :art: Run front-end
+## :art: Run Front-end
 
-On Client folder...
+- On Client folder...
 
 ```shell
 cd client
 ```
 
-Run the command:
+- Run the command:
+
 ```shell
 npm start
 ```
 
 Then open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## :game_die: Run back-end
+## :game_die: Run Back-end
 
-On Server folder...
+- On Server folder...
 
 ```shell
 cd server
 ```
 
-Run the command:
+- Run the command:
+
 ```shell
 npm run dev start
 ```
