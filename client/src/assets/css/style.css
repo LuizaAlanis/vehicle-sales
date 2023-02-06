@@ -1,0 +1,203 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/* BOOTSTRAP */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+/* VARIABLES */
+
+:root {
+    --dark-bg: #121212;
+    --dark: #6E04AE;
+    --primary: #9531D8;
+    --secondary: #CA98EC;
+    --degrade: #03CDDA;
+    --black: #1E1E1E;
+    --grey: #646464;
+    --white: #FFF;
+    --font: 'Roboto', sans-serif;
+}
+
+/* RESET CSS */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: var(--font);
+    font-size: 1.1rem;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* NAV */
+
+nav {
+    display: flex;
+    width: 90vw;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5vw;
+}
+
+.navbar-items{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.white{
+    color: var(--white);
+}
+
+.App{
+    background: var(--dark-bg);
+    min-height: 200vh;
+    color: var(--white);
+}
+
+/* SCROLL BAR */
+
+.App, html, body{
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 20px;
+}
+
+/* CATEGORY */
+
+.category-container{
+    display: flex;
+    padding: 30px 5vw;
+    gap: 30px;
+    color: var(--white);
+    align-items: center;
+}
+
+.category-icon{
+    background: var(--dark);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.bi, h2{
+    font-size: 2rem;
+}
+
+/* VEHICLES */
+
+.center{
+    display: flex;
+    padding: 30px 5vw;
+    width: 90vw;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.vehicles-for-sale{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.vehicle{
+    display: grid;
+    gap: 30px;
+    justify-content: center;
+    text-align: center;
+}
+
+.vehicle:hover{
+    display: grid;
+    gap: 30px;
+    justify-content: center;
+    text-align: center;
+}
+
+.vehicle-image{
+    background: var(--black);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    max-width: 200px;
+    height: 200px;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.vehicle-image img{
+    width: 100%;
+}
+
+.vehicle-image:hover {
+    box-shadow: 0 0 0 3px var(--primary);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.vehicle-price{
+    color: var(--grey);
+}
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 600px) {
+    nav {
+        display: grid;
+        gap: 30px;
+    }
+    .vehicle{
+        margin: 0 auto;
+    }
+}
