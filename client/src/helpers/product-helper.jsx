@@ -18,6 +18,10 @@ const ProductHelper = {
         return product
             && product.image;
     },
+    price: (product) => {
+        return product
+            && product.image;
+    },
 }
 
 export default ProductHelper;

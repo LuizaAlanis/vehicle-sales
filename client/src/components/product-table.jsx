@@ -123,6 +123,9 @@ function ProductTable(props) {
                                     <div className="align-div">IMAGE</div>
                                 </td>
                                 <td>
+                                    <div className="align-div">PRICE</div>
+                                </td>
+                                <td>
                                     <div className="align-div"></div>
                                 </td>
                                 <td>
@@ -147,7 +150,9 @@ function ProductTable(props) {
                                     <td>
                                         <div className="align-div">{ProductHelper.image(item) || "N/A"}</div>
                                     </td>
-
+                                    <td>
+                                        <div className="align-div">{ProductHelper.price(item) || "N/A"}</div>
+                                    </td>
                                     <td onClick={() => setShowList(false)}>
                                         <i className="bi bi-pencil bi-accent bi-lg"></i>
                                     </td>
