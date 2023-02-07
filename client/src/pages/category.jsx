@@ -1,4 +1,5 @@
 import React from "react";
+import ProductCard from "../components/product-card";
 
 function Category() {
     return <div className="main">
@@ -10,83 +11,23 @@ function Category() {
                 <h2>Cars</h2>
             </div>
         </header>
-        <section className="vehicles-for-sale">
-            <div className="vehicle">
-                <div className="vehicle-image">
-                    <img alt="vehicle"
-                         src="https://www.transparentpng.com/thumb/car-png/clipart-transparent-car-7.png"/>
-                </div>
-                <h3 className="vehicle-name">
-                    Car
-                </h3>
-                <p className="vehicle-price">$00.00</p>
-            </div>
-
-            <div className="vehicle">
-                <div className="vehicle-image">
-                    <img alt="vehicle"
-                         src="https://www.transparentpng.com/thumb/car-png/clipart-transparent-car-7.png"/>
-                </div>
-                <h3 className="vehicle-name">
-                    Car
-                </h3>
-                <p className="vehicle-price">$00.00</p>
-            </div>
-
-            <div className="vehicle">
-                <div className="vehicle-image">
-                    <img alt="vehicle"
-                         src="https://www.transparentpng.com/thumb/car-png/clipart-transparent-car-7.png"/>
-                </div>
-                <h3 className="vehicle-name">
-                    Car
-                </h3>
-                <p className="vehicle-price">$00.00</p>
-            </div>
-
-            <div className="vehicle">
-                <div className="vehicle-image">
-                    <img alt="vehicle"
-                         src="https://www.transparentpng.com/thumb/car-png/clipart-transparent-car-7.png"/>
-                </div>
-                <h3 className="vehicle-name">
-                    Car
-                </h3>
-                <p className="vehicle-price">$00.00</p>
-            </div>
-
-            <div className="vehicle">
-                <div className="vehicle-image">
-                    <img alt="vehicle"
-                         src="https://www.transparentpng.com/thumb/car-png/clipart-transparent-car-7.png"/>
-                </div>
-                <h3 className="vehicle-name">
-                    Car
-                </h3>
-                <p className="vehicle-price">$00.00</p>
-            </div>
-
-            <div className="vehicle">
-                <div className="vehicle-image">
-                    <img alt="vehicle"
-                         src="https://www.transparentpng.com/thumb/car-png/clipart-transparent-car-7.png"/>
-                </div>
-                <h3 className="vehicle-name">
-                    Car
-                </h3>
-                <p className="vehicle-price">$00.00</p>
-            </div>
-
-            <div className="vehicle">
-                <div className="vehicle-image">
-                    <img alt="vehicle"
-                         src="https://www.transparentpng.com/thumb/car-png/clipart-transparent-car-7.png"/>
-                </div>
-                <h3 className="vehicle-name">
-                    Car
-                </h3>
-                <p className="vehicle-price">$00.00</p>
-            </div>
+        <section className="vehicles-for-sale animated animatedFadeInUp fadeInUp">
+            <ProductCard
+                name={'Product'}
+                price={'00.00'}
+                image={'https://www.transparentpng.com/thumb/car-png/clipart-transparent-car-7.png'}/>
+            <ProductCard
+                name={'Product'}
+                price={'00.00'}
+                image={'https://www.transparentpng.com/thumb/car-png/clipart-transparent-car-7.png'}/>
+            <ProductCard
+                name={'Product'}
+                price={'00.00'}
+                image={'https://www.transparentpng.com/thumb/car-png/clipart-transparent-car-7.png'}/>
+            <ProductCard
+                name={'Product'}
+                price={'00.00'}
+                image={'https://www.transparentpng.com/thumb/car-png/clipart-transparent-car-7.png'}/>
         </section>
     </div>
 }

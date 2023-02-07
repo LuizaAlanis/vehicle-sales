@@ -6,7 +6,7 @@ import * as Authentication from '../helpers/authentication-helper'
 import App from '../App';
 import AdminNavbar from '../components/admin-navbar';
 import Navbar from '../components/navbar';
-import NotFound from '../not-found';
+import NotFound from '../pages/not-found';
 import LoadingComponent from '../components/loading-component'
 import MainComponent from "../main-component";
 import browserHistory from "./history";

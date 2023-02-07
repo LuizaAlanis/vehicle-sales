@@ -623,7 +623,8 @@ thead td {
     font-size: 1rem;
 }
 
-/* animations */
+/* ANIMATIONS */
+
 @keyframes fadeInUp {
     from {
         -webkit-transform: translate3d(0, 40px, 0);
@@ -664,4 +665,25 @@ thead td {
     animation-name: fadeInUp;
     -webkit-animation-name: fadeInUp;
 }
-/* animations */
+
+/* NOT FOUND */
+
+.not-found{
+    display: grid;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-found-message{
+    display: grid;
+    justify-content: center;
+    gap: 70px;
+    text-align: center;
+}
+
+.bi-search{
+    color: var(--dark);
+    font-size: calc(5vw + 30px);
+    margin: 0 auto;
+}
