@@ -73,7 +73,7 @@ class LoginComponent extends React.Component {
 
                 </div>
                 <div className="form-login">
-                    <form id="loginForm" className="p-3 shadow-dsm" onSubmit={this.authenticate}>
+                    <form className="form" id="loginForm" onSubmit={this.authenticate}>
                         <h2>Login</h2>
                         <br/><br/>
                         <input type="text"

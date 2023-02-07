@@ -9,7 +9,7 @@
     --dark-bg: #121212;
     --dark: #6E04AE;
     --primary: #9531D8;
-    --secondary: #CA98EC;
+    --secondary: #dabdf1;
     --degrade: #03CDDA;
     --black: #1E1E1E;
     --grey: #646464;
@@ -215,7 +215,7 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
 }
 
-.form-login form {
+.form {
     display: grid;
     gap: 30px;
 }
@@ -224,7 +224,8 @@ input {
     background: var(--secondary);
     border: none;
     padding: 10px;
-    width: 260px;
+    width: auto;
+    min-width: 300px;
     height: 25px;
     border-radius: 5px;
     outline: var(--primary);
@@ -238,4 +239,118 @@ input {
     color: var(--white);
     height: 50px;
     border-radius: 5px;
+}
+
+/* ACCORDION */
+
+.accordion-container {
+    min-height: 100vh;
+    padding: 130px 5vw 90px 5vw;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.accordion-list {
+    max-width: 600px;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 20px;
+}
+
+/* Style the accordion section */
+.accordion-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: #fff;
+    color: var(--grey);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.disabled .accordion {
+    opacity: 0.5;
+    cursor: unset;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+
+.active {
+    border-radius: 10px 10px 0 0;
+}
+
+/* Style the accordion content title */
+.accordion-title {
+    font-weight: 500;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the accordion chevron icon */
+.accordion-icon, .bi-plus {
+    transition: transform 0.6s ease;
+}
+
+/* Style to rotate icon when state is active */
+.rotate {
+    transform: rotate(90deg);
+}
+
+.rotate-45 {
+    transform: rotate(45deg);
+}
+
+/* Style the accordion content panel. Note: hidden by default */
+.accordion-content {
+    background-color: white;
+    overflow: hidden;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Style the accordion content text */
+.accordion-text {
+    font-weight: 400;
+    padding: 25px;
+    color: #757575;
+    line-height: 29px;
+    box-sizing: border-box;
+}
+
+.bi-plus {
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+.label-container {
+    border-radius: 5px;
+    display: flex;
+    margin: 0;
+    align-items: center;
+    width: auto;
+}
+
+@media screen and (max-width: 550px) {
+    .accordion, .accordion-content {
+        max-width: 90vw;
+    }
+
+    input, .input{
+        min-width: 0;
+    }
 }
