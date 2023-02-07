@@ -1,5 +1,6 @@
 import React from "react";
 import Accordion from "../components/Accordion/accordion";
+import ProductTable from "../components/product-table";
 
 function insert(event) {
     event.preventDefault()
@@ -27,6 +28,7 @@ function Admin() {
                 </form>
             }
         />
+        <ProductTable/>
     </div>
 }
 

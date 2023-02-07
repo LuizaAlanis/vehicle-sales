@@ -345,6 +345,197 @@ input {
     width: auto;
 }
 
+/* TABLE */
+
+/* Pagination */
+
+.example-container {
+    display: grid;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 60px;
+}
+
+.card-example {
+    padding: 30px 20px;
+    background-color: #fff;
+    width: 700px;
+    border-radius: 10px;
+    justify-content: left;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+.card-example b {
+    color: var(--primary);
+}
+
+.pagination-bar {
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    border-radius: 10px;
+    box-sizing: border-box !important;
+    justify-content: space-between;
+    max-width: 300px;
+}
+
+.pagination-bar button {
+    padding: 8px 20px;
+    color: var(--grey);
+    border: none;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: 1.5px solid #e0e0e0;
+}
+
+.pagination-bar button:nth-child(1) {
+    border-radius: 10px 0 0 10px;
+}
+
+.pagination-bar button:nth-child(5) {
+    border-radius: 0 10px 10px 0;
+}
+
+.currentPage {
+    background-color: #f06292 !important;
+    color: #fff !important;
+    min-width: 10px !important;
+    width: 10px !important;
+    border: none !important;
+}
+
+.pagination-numbers {
+    display: flex;
+    color: var(--grey);
+    width: auto;
+    align-items: center;
+    justify-content: end;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Pagination */
+
+/* Table */
+
+.table-container {
+    margin: 30px 0;
+    max-width: 1500px;
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow-x: auto !important;
+}
+
+.tableTitle {
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.custom-table {
+    width: 100%;
+    color: var(--grey);
+    border: 3px solid var(--white);
+    white-space: nowrap;
+    overflow: auto !important;
+}
+
+.table-header th {
+    padding: 20px;
+    text-align: center;
+}
+
+.custom-tbody tr td {
+    padding: 30px 15px;
+    text-align: center;
+    border-bottom: 3px solid var(--white);
+}
+
+.align-div {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.upppercase {
+    text-transform: uppercase;
+}
+
+.custom-tbody tr {
+    cursor: pointer;
+    background-color: var(--grey);
+}
+
+.custom-tbody tr:nth-child(even) {
+    background-color: var(--grey);
+}
+
+thead td {
+    padding: 30px;
+}
+
+/* Table */
+
+@media screen and (max-width: 1550px) {
+    .custom-table{
+        display: block;
+    }
+}
+@media screen and (max-width: 1275px) {
+    .pagination-container,
+    .table-container {
+        max-width: none;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .custom-tbody tr td {
+        padding: 15px;
+    }
+
+    thead td {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .pagination-container {
+        display: grid;
+        gap: 30px;
+        justify-content: left;
+    }
+
+    .pagination-numbers {
+        justify-content: start;
+    }
+}
+
+.settings-forms-container{
+    display: grid;
+    gap: 30px;
+}
+
+.input-container{
+    display: grid;
+    gap: 15px;
+}
+
+.table-container {
+    display: grid;
+    overflow-x: auto;
+}
+
+
+
 @media screen and (max-width: 550px) {
     .accordion, .accordion-content {
         max-width: 90vw;
