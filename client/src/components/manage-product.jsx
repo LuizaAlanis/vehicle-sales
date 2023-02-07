@@ -1,6 +1,5 @@
 import React from 'react';
 import 'react-toastify/dist/ReactToastify.css';
-import ToastHelper from "../helpers/toast-helper";
 import ProductHelper from "../helpers/product-helper";
 
 class ManageProdutct extends React.Component {
