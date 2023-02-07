@@ -6,7 +6,7 @@ import Accordion from "./Accordion/accordion";
 
 function ProductTable(props) {
     const [loading, setLoading] = useState("")
-    const [showList, setShowList] = useState(false)
+    const [showList, setShowList] = useState(true)
     const [items, setItems] = useState([])
     const [product, setProduct] = useState()
     const [totalNumber, setTotalNumber] = useState([])

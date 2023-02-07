@@ -6,18 +6,13 @@ function Navbar() {
     return (
         <nav className="white">
             <ul className="navbar-items">
-                <li className="logo">
-                    <Link to={routes.ROOT}>Vehicle Sales</Link>
+                <li className="logo link">
+                    <Link to={routes.ROOT} target="_blank">Vehicle Sales</Link>
                 </li>
             </ul>
             <ul className="navbar-items">
-                <li>
-                    <Link to={routes.LOGIN}></Link>
-                    Our products
-                </li>
-                <li>
-                    <Link to={routes.LOGIN}></Link>
-                    Login
+                <li className="link">
+                    <Link to={routes.LOGIN} target="_blank">Login</Link>
                 </li>
             </ul>
         </nav>

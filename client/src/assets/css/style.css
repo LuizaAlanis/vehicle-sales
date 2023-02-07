@@ -6,7 +6,7 @@
 /* VARIABLES */
 
 :root {
-    --dark-bg: #121212;
+    --dark-bg: #000000;
     --dark: #6E04AE;
     --primary: #9531D8;
     --secondary: #dabdf1;
@@ -528,11 +528,11 @@ thead td {
 
 @media screen and (max-width: 1000px) {
 
-    .banner-login{
+    .banner-login {
         display: none;
     }
 
-    .form-login{
+    .form-login {
         width: 100vw;
         min-height: 100vh;
     }
@@ -685,22 +685,50 @@ thead td {
 
 /* NOT FOUND */
 
-.not-found{
+.not-found {
     display: grid;
     height: 70vh;
     justify-content: center;
     align-items: center;
 }
 
-.not-found-message{
+.not-found-message {
     display: grid;
     justify-content: center;
     gap: 70px;
     text-align: center;
 }
 
-.bi-search{
+.bi-search {
     color: var(--dark);
     font-size: calc(5vw + 30px);
     margin: 0 auto;
+}
+
+.banner {
+    background-image: url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+    width: 100%;
+    height: 300px;
+    margin: 0 0 60px 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+footer {
+    margin-top: 100px;
+    padding: 20px;
+    color: var(--soft-grey);
+    width: 100vw;
+    height: 30px;
+    background-color: var(--dark-bg);
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
 }

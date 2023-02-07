@@ -3,6 +3,7 @@ import ProductCard from "../components/product-card";
 
 function Home() {
     return <div className="main">
+        <div className="banner"></div>
         <header className="category-container">
             <div className="category-icon">
                 <i className="bi bi-car-front"></i>
@@ -29,6 +30,9 @@ function Home() {
                 price={'00.00'}
                 image={'https://www.transparentpng.com/thumb/car-png/clipart-transparent-car-7.png'}/>
         </section>
+        <footer>
+            made by Luiza Alanis, 2022.
+        </footer>
     </div>
 }
 
