@@ -20,6 +20,9 @@ function ProductTable(props) {
 
     useEffect(() => {
         const fetchData = async () => {
+            const result = ['', '']
+            setItems(result)
+
             /*
                   TODO: Create Product Service
                   const result = await ProductService.findProducts(currentPage, itemsPerPage, 'DESC')
@@ -90,6 +93,12 @@ function ProductTable(props) {
                                 <td>
                                     <div className="align-div">IMAGE</div>
                                 </td>
+                                <td>
+                                    <div className="align-div"></div>
+                                </td>
+                                <td>
+                                    <div className="align-div"></div>
+                                </td>
                             </tr>
                             </thead>
                             <tbody className="custom-tbody">
@@ -101,7 +110,7 @@ function ProductTable(props) {
                                         <div className="align-div">{ProductHelper.id(item) || "N/A"}</div>
                                     </td>
                                     <td>
-                                        <div className="align-div">{ProductHelper.model(item)}</div>
+                                        <div className="align-div">{ProductHelper.model(item) || "N/A"}</div>
                                     </td>
                                     <td>
                                         <div className="align-div">{ProductHelper.brand(item) || "N/A"}</div>
@@ -110,9 +119,12 @@ function ProductTable(props) {
                                         <div className="align-div">{ProductHelper.image(item) || "N/A"}</div>
                                     </td>
 
-                                    {/* GO TO MANAGE YOUR PRODUCT */}
                                     <td onClick={() => setManage(item)}>
-                                        <i className="bi bi-chevron-right bi-accent"></i>
+                                        <i className="bi bi-pencil bi-accent bi-lg"></i>
+                                    </td>
+
+                                    <td onClick={() => setManage(item)}>
+                                        <i className="bi bi-trash3 bi-accent bi-lg"></i>
                                     </td>
                                 </tr>
                             })}
@@ -125,14 +137,12 @@ function ProductTable(props) {
                             <button value={0} onClick={(event) => {
                                 first(event)
                             }} disabled={currentPage === 0}>
-                                {loading === "first" ? <LoadingComponent/> : null}
                                 First
                             </button>
 
                             <button value={currentPage > 0 ? currentPage - 1 : currentPage} onClick={(event) => {
                                 previous(event)
                             }} disabled={currentPage === 0}>
-                                {loading === "previous" ? <LoadingComponent/> : false}
                                 <i className="bi bi-chevron-left"></i>
                             </button>
 
@@ -142,14 +152,12 @@ function ProductTable(props) {
                                     onClick={(event) => {
                                         next(event)
                                     }} disabled={currentPage === pages - 1}>
-                                {loading === "next" ? <LoadingComponent/> : false}
                                 <i className="bi bi-chevron-right"></i>
                             </button>
 
                             <button value={pages - 1} onClick={(event) => {
                                 last(event)
                             }} disabled={currentPage === pages - 1}>
-                                {loading === "last" ? <LoadingComponent/> : false}
                                 Last
                             </button>
                         </div>

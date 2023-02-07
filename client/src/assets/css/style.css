@@ -13,6 +13,7 @@
     --degrade: #03CDDA;
     --black: #1E1E1E;
     --grey: #646464;
+    --soft-grey: #ececec;
     --white: #FFF;
     --font: 'Roboto', sans-serif;
 }
@@ -70,8 +71,7 @@ nav {
     width: 90vw;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5vw;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    padding: 30px 5vw;
 }
 
 .navbar-items {
@@ -117,7 +117,6 @@ body::-webkit-scrollbar-thumb {
 .category-container {
     display: flex;
     gap: 30px;
-    color: var(--white);
     align-items: center;
 }
 
@@ -125,10 +124,11 @@ body::-webkit-scrollbar-thumb {
     background: var(--dark);
     padding: 30px;
     border-radius: 10px;
+    color: var(--white);
 }
 
-.bi, h2 {
-    font-size: 2rem;
+.category-container .bi, h2 {
+    font-size: 1.5rem;
 }
 
 /* VEHICLES */
@@ -194,6 +194,11 @@ body::-webkit-scrollbar-thumb {
 
 /* LOGIN */
 
+.login-container{
+    position: absolute;
+    top: 0;
+}
+
 .login-container {
     display: flex;
 }
@@ -213,6 +218,7 @@ body::-webkit-scrollbar-thumb {
     width: 50vw;
     justify-content: center;
     align-items: center;
+    background: var(--white);
 }
 
 .form {
@@ -239,6 +245,7 @@ input {
     color: var(--white);
     height: 50px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 /* ACCORDION */
@@ -297,7 +304,6 @@ input {
 /* Style the accordion content title */
 .accordion-title {
     font-weight: 500;
-    font-size: 18px;
     margin: 0;
     padding: 0;
 }
@@ -345,8 +351,6 @@ input {
     width: auto;
 }
 
-/* TABLE */
-
 /* Pagination */
 
 .example-container {
@@ -382,7 +386,7 @@ input {
 }
 
 .pagination-bar button {
-    padding: 8px 20px;
+    padding: 4px 10px;
     color: var(--grey);
     border: none;
     display: flex;
@@ -402,11 +406,11 @@ input {
 }
 
 .currentPage {
-    background-color: #f06292 !important;
-    color: #fff !important;
-    min-width: 10px !important;
-    width: 10px !important;
-    border: none !important;
+    background-color: var(--primary) !important;
+    color: var(--white) !important;
+    min-width: 20px;
+    padding: 0 15px !important;
+    border: none;
 }
 
 .pagination-numbers {
@@ -421,30 +425,59 @@ input {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1500px;
 }
 
 /* Pagination */
 
 /* Table */
 
+.filter-container{
+    margin-top:50px;
+}
+
+.portal-custom-select {
+    gap: 20px;
+    display: flex;
+}
+
+.portal-custom-select select {
+    max-width: 150px;
+}
+
+.custom-select {
+    border: none;
+    outline: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.05);  -webkit-appearance: none;
+    width: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.bi-accent{
+    color: var(--primary) !important;
+}
+
 .table-container {
-    margin: 30px 0;
+    margin: 50px 0;
     max-width: 1500px;
-    background-color: var(--white);
     border-radius: 10px;
     overflow-x: auto !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
 .tableTitle {
     font-weight: 400;
-    font-size: 20px;
     text-transform: uppercase;
+    border: solic 3px var(--primary);
 }
 
 .custom-table {
     width: 100%;
     color: var(--grey);
-    border: 3px solid var(--white);
+    border-radius: 10px;
     white-space: nowrap;
     overflow: auto !important;
 }
@@ -472,24 +505,21 @@ input {
 
 .custom-tbody tr {
     cursor: pointer;
-    background-color: var(--grey);
+    background-color: var(--soft-grey);
 }
 
 .custom-tbody tr:nth-child(even) {
-    background-color: var(--grey);
+    background-color: var(--white);
 }
 
 thead td {
     padding: 30px;
 }
 
-/* Table */
-
-@media screen and (max-width: 1550px) {
-    .custom-table{
-        display: block;
-    }
+.bi-lg{
+    font-size: 1.2rem;
 }
+
 @media screen and (max-width: 1275px) {
     .pagination-container,
     .table-container {
@@ -543,5 +573,13 @@ thead td {
 
     input, .input{
         min-width: 0;
+    }
+}
+
+/* TABLE */
+
+@media screen and (max-width: 1550px) {
+    .custom-table{
+        display: table;
     }
 }

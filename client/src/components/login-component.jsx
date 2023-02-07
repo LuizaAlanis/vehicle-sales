@@ -70,7 +70,6 @@ class LoginComponent extends React.Component {
         return (
             <div className="login-container">
                 <div className="banner-login">
-
                 </div>
                 <div className="form-login">
                     <form className="form" id="loginForm" onSubmit={this.authenticate}>

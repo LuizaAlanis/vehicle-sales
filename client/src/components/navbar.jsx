@@ -4,7 +4,7 @@ function Navbar() {
     return (
         <nav className="white">
             <ul className="navbar-items">
-                <li className="logo">Brand</li>
+                <li className="logo">Vehicle Sales</li>
             </ul>
             <ul className="navbar-items">
                 <li>Releases</li>
