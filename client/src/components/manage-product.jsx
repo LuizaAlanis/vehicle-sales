@@ -59,8 +59,12 @@ class ManageProdutct extends React.Component {
                         <br/>
                         <input className="input-text" value={ProductHelper.image(this.state.product)}/>
                         <br/>
+                        <label>PRICE</label>
+                        <input className="input-text" value={ProductHelper.model(this.state.product)}/>
+                        <br/>
                         <button className="primary-button" type="submit">Update</button>
                         {/* TODO: Implement onSubmitEvent */}
+                        <br/><br/>
                     </form>
                 </div>
             </section>
