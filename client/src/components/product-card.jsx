@@ -11,7 +11,7 @@ function ProductCard(props) {
                 {props.name}
             </h3>
             {/* TODO: Make the currency helper */}
-            <p className="vehicle-price">${props.price}</p>
+            <p className="vehicle-price">{props.price}</p>
         </div>
     );
 }

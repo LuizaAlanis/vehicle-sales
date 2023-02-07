@@ -1,8 +1,7 @@
 const ProductHelper = {
     id: (product) => {
         return product
-            && product.id
-            && product.id.toUpperCase();
+            && product.id;
     },
     model: (product) => {
         return product
@@ -20,7 +19,8 @@ const ProductHelper = {
     },
     price: (product) => {
         return product
-            && product.image;
+            && product.price
+            && product.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
     },
 }
 

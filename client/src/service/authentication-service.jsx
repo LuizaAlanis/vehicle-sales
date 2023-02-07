@@ -30,6 +30,11 @@ const AuthenticationService = {
             }, REFRESH_TIMEOUT); // 5 minutes
         }
     },
+
+    setCookie: (cookieName) => {
+        return Cookies.set(cookieName);
+    },
+
     getCookie: (cookieName) => {
         return Cookies.get(cookieName);
     },

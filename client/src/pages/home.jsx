@@ -1,7 +1,20 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import ProductCard from "../components/product-card";
+import ProductService from "../service/product-service";
+import ProductHelper from "../helpers/product-helper";
 
 function Home() {
+    const [vehicles, setVehicles] = useState([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await ProductService.getAllVehicles();
+            console.log(response.data)
+            setVehicles(response.data)
+        }
+        fetchData()
+    }, [])
+
     return <div className="main">
         <div className="banner"></div>
         <header className="category-container">
@@ -13,22 +26,13 @@ function Home() {
             </div>
         </header>
         <section className="vehicles-for-sale animated animatedFadeInUp fadeInUp">
-            <ProductCard
-                name={'Product'}
-                price={'00.00'}
-                image={'https://www.transparentpng.com/thumb/car-png/clipart-transparent-car-7.png'}/>
-            <ProductCard
-                name={'Product'}
-                price={'00.00'}
-                image={'https://www.transparentpng.com/thumb/car-png/clipart-transparent-car-7.png'}/>
-            <ProductCard
-                name={'Product'}
-                price={'00.00'}
-                image={'https://www.transparentpng.com/thumb/car-png/clipart-transparent-car-7.png'}/>
-            <ProductCard
-                name={'Product'}
-                price={'00.00'}
-                image={'https://www.transparentpng.com/thumb/car-png/clipart-transparent-car-7.png'}/>
+
+            {vehicles.map(vehicle => {
+                return <ProductCard
+                    name={ProductHelper.brand(vehicle) + " " + ProductHelper.model(vehicle)}
+                    price={ProductHelper.price(vehicle) || "N/A"}
+                    image={ProductHelper.image(vehicle)}/>
+            })}
         </section>
         <footer>
             made by Luiza Alanis, 2022.

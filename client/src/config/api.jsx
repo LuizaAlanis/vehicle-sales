@@ -5,9 +5,7 @@ import Cookies from 'js-cookie';
 
 /* CONFIG */
 const api = axios.create({
-    baseURL: `${
-        process.env.REACT_APP_ENV === 'dev' ? 'http://localhost:9090/api' : '/api'
-    }`,
+    baseURL: 'http://localhost:8080/api',
     responseType: 'json',
 });
 
