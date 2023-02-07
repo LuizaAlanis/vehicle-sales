@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import LoadingComponent from '../components/loading-component';
 import ToastHelper from "../helpers/toast-helper";
 import ProductHelper from "../helpers/product-helper";
 import ManageProduct from "./manage-product";
+import Accordion from "./Accordion/accordion";
 
 function ProductTable(props) {
     const [loading, setLoading] = useState("")
+    const [showList, setShowList] = useState(false)
     const [items, setItems] = useState([])
     const [product, setProduct] = useState()
     const [totalNumber, setTotalNumber] = useState([])
@@ -55,9 +56,37 @@ function ProductTable(props) {
         setLoading("last")
     }
 
+    function insert(event) {
+        event.preventDefault()
+        return null
+    }
+
+    function deleteProduct(event) {
+        return null
+    }
+
     return (<>
-            {manage === false ?
+            {showList ?
                 <>
+                    <Accordion
+                        plus={true}
+                        active={true}
+                        title='New product'
+                        content={
+                            /* find and activate */
+                            <form className="device-id-container" id="device-form" onSubmit={(event) => {
+                                insert(event)
+                            }}>
+                                <label className="label">Create new Product</label> <br/><br/>
+                                <div className="form">
+                                    <input className="input" type="text" id="" placeholder="Name"/>
+                                    <input className="input" type="text" id="" placeholder="Price"/>
+                                    <button className="primary-button" type="submit">Create</button>
+                                </div>
+                            </form>
+                        }
+                    />
+
                     <div className="filter-container">
                         <div className="portal-custom-select">
                             <div className="label-container">
@@ -77,7 +106,7 @@ function ProductTable(props) {
                         </div>
                     </div>
 
-                    <div className="table-container">
+                    <div className="table-container animated animatedFadeInUp fadeInUp">
                         <table className="custom-table">
                             <thead className="table-header">
                             <tr>
@@ -119,11 +148,11 @@ function ProductTable(props) {
                                         <div className="align-div">{ProductHelper.image(item) || "N/A"}</div>
                                     </td>
 
-                                    <td onClick={() => setManage(item)}>
+                                    <td onClick={() => setShowList(false)}>
                                         <i className="bi bi-pencil bi-accent bi-lg"></i>
                                     </td>
 
-                                    <td onClick={() => setManage(item)}>
+                                    <td onClick={() => deleteProduct(item)}>
                                         <i className="bi bi-trash3 bi-accent bi-lg"></i>
                                     </td>
                                 </tr>
@@ -165,14 +194,17 @@ function ProductTable(props) {
                             Total {totalNumber}
                         </div>
                     </div>
-                </> : null}
-            {manage ?
-                <>
-                    <ManageProduct product={product}/>
-                    <p className="page-title accent pointer" onClick={() => setManage(false)}><i
-                        className="bi bi-chevron-left"></i>Back home</p>
                 </>
-                : null
+            :
+                <>
+                    <p className="link" style={{marginTop: '40px'}} onClick={() => setShowList(true)}><i
+                        className="bi bi-chevron-left"></i>Back home</p>
+                    <div className="animated animatedFadeInUp fadeInUp">
+                        <ManageProduct product={product}/>
+                        <br/>
+                    </div>
+
+                </>
             }
         </>
     );

@@ -10,7 +10,6 @@ class ManageProdutct extends React.Component {
             product: props.product,
             offlineCode: '',
             dateTime: '',
-            tag: ProductHelper.executorItemId(props.product),
             newDueDate: ''
         };
     }
@@ -39,24 +38,32 @@ class ManageProdutct extends React.Component {
 
     render() {
         return (
-            <>
-                <p className="page-title">string</p>
+            <section className="update-product">
+                <p className="page-title">Update</p>
                 <div className="forms-container">
                     <form className="custom-form" onSubmit={this.updateProduct}>
                         <label>ID</label>
                         <input className="input-text" value={ProductHelper.id(this.state.product)} readOnly/>
+                        <br/>
                         <label>BRAND</label>
                         <input className="input-text" value={ProductHelper.brand(this.state.product)}/>
+                        <br/>
                         <label>MODEL</label>
                         <input className="input-text" value={ProductHelper.model(this.state.product)}/>
+                        <br/>
                         <label>IMAGE</label>
                         {/* TODO: Implement handler */}
-                        <img alt="product" src={ProductHelper.image(this.state.product)}/>
+                        <br/>
+                        <img className="update-image" alt="product"
+                             src={ProductHelper.image(this.state.product) || "http://via.placeholder.com/100"}/>
+                        <br/>
                         <input className="input-text" value={ProductHelper.image(this.state.product)}/>
+                        <br/>
+                        <button className="primary-button" type="submit">Update</button>
                         {/* TODO: Implement onSubmitEvent */}
                     </form>
                 </div>
-            </>
+            </section>
         );
     }
 }
