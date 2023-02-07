@@ -11,6 +11,7 @@ import history from "./history";
 import LoginComponent from "../components/login-component";
 import Home from "../pages/home";
 import Admin from "../pages/admin";
+import {ToastContainer} from "react-toastify";
 
 function ApplicationRouter() {
     return (
@@ -34,6 +35,7 @@ function ApplicationRouter() {
                     </Switch>
                 </Suspense>
             </MainComponent>
+            <ToastContainer/>
         </Router>
     );
 }

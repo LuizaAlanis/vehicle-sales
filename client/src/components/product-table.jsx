@@ -51,167 +51,205 @@ function ProductTable(props) {
         setLoading("last")
     }
 
-    function insert(event) {
+    function create(event) {
         event.preventDefault()
-        return null
+
+        const vehicle = {
+            image: event.target[0].value,
+            brand: event.target[1].value,
+            model: event.target[2].value,
+            price: event.target[3].value
+        }
+        console.log(vehicle)
+
+        ToastHelper.showLoading(ProductService.createVehicle(vehicle), {
+            success: 'Vehicle created',
+            pending: 'Pending...',
+            error: {
+                notFound: 'Not found',
+                message: 'Error, you may need authenticate again'
+            },
+        })
+            .then(response => {
+                console.log(response)
+            })
+            .catch(e => {
+                console.log(e)
+            });
     }
 
-    function deleteProduct(event) {
-        return null
+    function deleteProduct(event, id) {
+        event.preventDefault()
+
+        ToastHelper.showLoading(ProductService.deleteVehicle(id), {
+            success: 'Vehicle deleted',
+            pending: 'Pending...',
+            error: {
+                notFound: 'Not found',
+                message: 'Error, you may need authenticate again'
+            },
+        })
+            .then(response => {
+                console.log(response)
+            })
+            .catch(e => {
+                console.log(e)
+            });
     }
 
     return (<>
-    {showList ?
-        <>
-            <Accordion
-                plus={true}
-                active={true}
-                title='New product'
-                content={
-                    /* find and activate */
-                    <form className="device-id-container" id="device-form" onSubmit={(event) => {
-                        insert(event)
-                    }}>
-                        <label className="label">Create new Product</label> <br/><br/>
-                        <div className="form">
-                            <input className="input" type="text" id="" placeholder="Name"/>
-                            <input className="input" type="text" id="" placeholder="Price"/>
-                            <button className="primary-button" type="submit">Create</button>
-                        </div>
-                    </form>
-                }
-            />
-
-            <div className="filter-container">
-                <div className="portal-custom-select">
-                    <div className="label-container">
-                        <p className="silver label-same-size">Devices per page</p>
-                    </div>
-                    <select
-                        onChange={(event) => changeQuantity(event.target.value)}
-                        className="custom-select"
-                        value={itemsPerPage}
-                    >
-                        <option value="3">3</option>
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="30">30</option>
-                    </select>
-                </div>
-            </div>
-
-            <div className="table-container animated animatedFadeInUp fadeInUp">
-                <table className="custom-table">
-                    <thead className="table-header">
-                    <tr>
-                        <td>
-                            <div className="align-div">IMAGE</div>
-                        </td>
-                        <td>
-                            <div className="align-div">ID</div>
-                        </td>
-                        <td>
-                            <div className="align-div">MODEL</div>
-                        </td>
-                        <td>
-                            <div className="align-div">BRAND</div>
-                        </td>
-                        <td>
-                            <div className="align-div">PRICE</div>
-                        </td>
-                        <td>
-                            <div className="align-div"></div>
-                        </td>
-                        <td>
-                            <div className="align-div"></div>
-                        </td>
-                    </tr>
-                    </thead>
-                    <tbody className="custom-tbody">
-
-                    {vehicles.map(vehicle => {
-                        return <tr key={ProductHelper.id(vehicle)} onClick={() => setProduct(vehicle)}
-                                   onDoubleClick={() => setManage(true)}>
-                            <td>
-                                <div className="align-div">{}
-                                    <img className="product-preview" alt="Product preview"
-                                         src={ProductHelper.image(vehicle) || 'https://via.placeholder.com/50'}/>
+            {showList ?
+                <>
+                    <Accordion
+                        plus={true}
+                        active={true}
+                        title='New product'
+                        content={
+                            /* find and activate */
+                            <form className="device-id-container" id="device-form" onSubmit={(event) => {
+                                create(event)
+                            }}>
+                                <label className="label">Create new Product</label> <br/><br/>
+                                <div className="form">
+                                    <input className="input" type="text" placeholder="Image" required/>
+                                    <input className="input" type="text" placeholder="Brand" required/>
+                                    <input className="input" type="text" placeholder="Model" required/>
+                                    <input className="input" type="text" placeholder="Price" required/>
+                                    <button className="primary-button" type="submit">Create</button>
                                 </div>
-                            </td>
-                            <td>
-                                {ProductHelper.id(vehicle) || "N/A"}
-                            </td>
-                            <td>
-                                {ProductHelper.model(vehicle) || "N/A"}
-                            </td>
-                            <td>
-                                {ProductHelper.brand(vehicle) || "N/A"}
-                            </td>
-                            <td>
-                                {ProductHelper.price(vehicle) || "N/A"}
-                            </td>
-                            <td onClick={() => setShowList(false)}>
-                                <i className="bi bi-pencil bi-accent bi-lg"></i>
-                            </td>
+                            </form>
+                        }
+                    />
 
-                            <td onClick={() => deleteProduct(ProductHelper.id(vehicle))}>
-                                <i className="bi bi-trash3 bi-accent bi-lg"></i>
-                            </td>
-                        </tr>
-                    })}
-    </tbody>
-</table>
-</div>
+                    <div className="filter-container">
+                        <div className="portal-custom-select">
+                            <div className="label-container">
+                                <p className="silver label-same-size">Devices per page</p>
+                            </div>
+                            <select
+                                onChange={(event) => changeQuantity(event.target.value)}
+                                className="custom-select"
+                                value={itemsPerPage}
+                            >
+                                <option value="3">3</option>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                            </select>
+                        </div>
+                    </div>
 
-    <div className="pagination-container">
-        <div className="pagination-bar">
-            <button value={0} onClick={(event) => {
-                first(event)
-            }} disabled={currentPage === 0}>
-                First
-            </button>
+                    <div className="table-container animated animatedFadeInUp fadeInUp">
+                        <table className="custom-table">
+                            <thead className="table-header">
+                            <tr>
+                                <td>
+                                    <div className="align-div">IMAGE</div>
+                                </td>
+                                <td>
+                                    <div className="align-div">ID</div>
+                                </td>
+                                <td>
+                                    <div className="align-div">MODEL</div>
+                                </td>
+                                <td>
+                                    <div className="align-div">BRAND</div>
+                                </td>
+                                <td>
+                                    <div className="align-div">PRICE</div>
+                                </td>
+                                <td>
+                                    <div className="align-div"></div>
+                                </td>
+                                <td>
+                                    <div className="align-div"></div>
+                                </td>
+                            </tr>
+                            </thead>
+                            <tbody className="custom-tbody">
 
-            <button value={currentPage > 0 ? currentPage - 1 : currentPage} onClick={(event) => {
-                previous(event)
-            }} disabled={currentPage === 0}>
-                <i className="bi bi-chevron-left"></i>
-            </button>
+                            {vehicles.map(vehicle => {
+                                return <tr key={ProductHelper.id(vehicle)} onClick={() => setProduct(vehicle)}
+                                           onDoubleClick={() => setManage(true)}>
+                                    <td>
+                                        <div className="align-div">{}
+                                            <img className="product-preview" alt="Product preview"
+                                                 src={ProductHelper.image(vehicle) || 'https://via.placeholder.com/50'}/>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        {ProductHelper.id(vehicle) || "N/A"}
+                                    </td>
+                                    <td>
+                                        {ProductHelper.model(vehicle) || "N/A"}
+                                    </td>
+                                    <td>
+                                        {ProductHelper.brand(vehicle) || "N/A"}
+                                    </td>
+                                    <td>
+                                        {ProductHelper.price(vehicle) || "N/A"}
+                                    </td>
+                                    <td onClick={() => setShowList(false)}>
+                                        <i className="bi bi-pencil bi-accent bi-lg"></i>
+                                    </td>
 
-            <button className="currentPage" value={currentPage}>{currentPage + 1}</button>
+                                    <td onClick={(event) => deleteProduct(event, ProductHelper.id(vehicle))}>
+                                        <i className="bi bi-trash3 bi-accent bi-lg"></i>
+                                    </td>
+                                </tr>
+                            })}
+                            </tbody>
+                        </table>
+                    </div>
 
-            <button value={currentPage < pages - 1 ? currentPage + 1 : currentPage}
-                    onClick={(event) => {
-                        next(event)
-                    }} disabled={currentPage === pages - 1}>
-                <i className="bi bi-chevron-right"></i>
-            </button>
+                    <div className="pagination-container">
+                        <div className="pagination-bar">
+                            <button value={0} onClick={(event) => {
+                                first(event)
+                            }} disabled={currentPage === 0}>
+                                First
+                            </button>
 
-            <button value={pages - 1} onClick={(event) => {
-                last(event)
-            }} disabled={currentPage === pages - 1}>
-                Last
-            </button>
-        </div>
-        <div className="pagination-numbers">
-            Total de registros: {totalNumber}
-        </div>
-    </div>
-</>
-:
-    <>
-        <p className="link" style={{marginTop: '40px'}} onClick={() => setShowList(true)}><i
-            className="bi bi-chevron-left"></i>Back home</p>
-        <div className="animated animatedFadeInUp fadeInUp">
-            <ManageProduct product={product}/>
-            <br/>
-        </div>
+                            <button value={currentPage > 0 ? currentPage - 1 : currentPage} onClick={(event) => {
+                                previous(event)
+                            }} disabled={currentPage === 0}>
+                                <i className="bi bi-chevron-left"></i>
+                            </button>
 
-    </>
-}
-</>
-)
-    ;
+                            <button className="currentPage" value={currentPage}>{currentPage + 1}</button>
+
+                            <button value={currentPage < pages - 1 ? currentPage + 1 : currentPage}
+                                    onClick={(event) => {
+                                        next(event)
+                                    }} disabled={currentPage === pages - 1}>
+                                <i className="bi bi-chevron-right"></i>
+                            </button>
+
+                            <button value={pages - 1} onClick={(event) => {
+                                last(event)
+                            }} disabled={currentPage === pages - 1}>
+                                Last
+                            </button>
+                        </div>
+                        <div className="pagination-numbers">
+                            Total de registros: {totalNumber}
+                        </div>
+                    </div>
+                </>
+                :
+                <>
+                    <p className="link" style={{marginTop: '40px'}} onClick={() => setShowList(true)}><i
+                        className="bi bi-chevron-left"></i>Back home</p>
+                    <div className="animated animatedFadeInUp fadeInUp">
+                        <ManageProduct product={product}/>
+                        <br/>
+                    </div>
+
+                </>
+            }
+        </>
+    );
 }
 
 export default ProductTable
