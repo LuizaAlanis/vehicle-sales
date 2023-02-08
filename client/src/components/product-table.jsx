@@ -128,10 +128,10 @@ function ProductTable(props) {
                                     <div className="align-div">ID</div>
                                 </td>
                                 <td>
-                                    <div className="align-div">MODEL</div>
+                                    <div className="align-div">BRAND</div>
                                 </td>
                                 <td>
-                                    <div className="align-div">BRAND</div>
+                                    <div className="align-div">MODEL</div>
                                 </td>
                                 <td>
                                     <div className="align-div">PRICE</div>
@@ -159,10 +159,10 @@ function ProductTable(props) {
                                         {ProductHelper.id(vehicle) || "N/A"}
                                     </td>
                                     <td>
-                                        {ProductHelper.model(vehicle) || "N/A"}
+                                        {ProductHelper.brand(vehicle) || "N/A"}
                                     </td>
                                     <td>
-                                        {ProductHelper.brand(vehicle) || "N/A"}
+                                        {ProductHelper.model(vehicle) || "N/A"}
                                     </td>
                                     <td>
                                         {ProductHelper.price(vehicle) || "N/A"}
