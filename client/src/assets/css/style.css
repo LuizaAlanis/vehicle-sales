@@ -252,21 +252,6 @@ input {
 
 /* ACCORDION */
 
-.accordion-container {
-    min-height: 100vh;
-    padding: 130px 5vw 90px 5vw;
-    max-width: 400px;
-    box-sizing: border-box;
-}
-
-.accordion-list {
-    max-width: 600px;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: 20px;
-}
-
 /* Style the accordion section */
 .accordion-section {
     display: flex;
@@ -287,8 +272,6 @@ input {
     outline: none;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
 }
 
@@ -297,27 +280,10 @@ input {
     cursor: unset;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-
-.active {
-    border-radius: 10px 10px 0 0;
-}
-
-/* Style the accordion content title */
 .accordion-title {
     font-weight: 500;
     margin: 0;
     padding: 0;
-}
-
-/* Style the accordion chevron icon */
-.accordion-icon, .bi-plus {
-    transition: transform 0.6s ease;
-}
-
-/* Style to rotate icon when state is active */
-.rotate {
-    transform: rotate(90deg);
 }
 
 .rotate-45 {
@@ -345,104 +311,6 @@ input {
     font-size: 2rem;
 }
 
-.label-container {
-    border-radius: 5px;
-    display: flex;
-    margin: 0;
-    align-items: center;
-    width: auto;
-}
-
-/* Pagination */
-
-.example-container {
-    display: grid;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 60px;
-}
-
-.card-example {
-    padding: 30px 20px;
-    background-color: #fff;
-    width: 700px;
-    border-radius: 10px;
-    justify-content: left;
-    align-items: center;
-    display: flex;
-    gap: 10px;
-}
-
-.card-example b {
-    color: var(--primary);
-}
-
-.pagination-bar {
-    background-color: #fff;
-    border-radius: 10px;
-    display: flex;
-    border-radius: 10px;
-    box-sizing: border-box !important;
-    justify-content: space-between;
-    max-width: 300px;
-}
-
-.pagination-bar button {
-    padding: 4px 10px;
-    color: var(--grey);
-    border: none;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    border: 1.5px solid #e0e0e0;
-}
-
-.pagination-bar button:nth-child(1) {
-    border-radius: 10px 0 0 10px;
-}
-
-.pagination-bar button:nth-child(5) {
-    border-radius: 0 10px 10px 0;
-}
-
-.currentPage {
-    background-color: var(--primary) !important;
-    color: var(--white) !important;
-    min-width: 20px;
-    padding: 0 15px !important;
-    border: none;
-}
-
-.pagination-numbers {
-    display: flex;
-    color: var(--grey);
-    width: auto;
-    align-items: center;
-    justify-content: end;
-}
-
-.pagination-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1500px;
-}
-
-/* Pagination */
-
-/* Table */
-
-.filter-container {
-    margin-top: 50px;
-}
-
-.portal-custom-select {
-    gap: 20px;
-    display: flex;
-}
-
 .portal-custom-select select {
     max-width: 150px;
 }
@@ -452,7 +320,7 @@ input {
     outline: none;
     padding: 5px 20px;
     border-radius: 5px;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
     -webkit-appearance: none;
     width: 60px;
     text-align: center;
@@ -469,12 +337,6 @@ input {
     border-radius: 10px;
     overflow-x: auto !important;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-}
-
-.tableTitle {
-    font-weight: 400;
-    text-transform: uppercase;
-    border: solic 3px var(--primary);
 }
 
 .custom-table {
@@ -501,10 +363,6 @@ input {
     display: grid;
     justify-content: center;
     align-items: center;
-}
-
-.upppercase {
-    text-transform: uppercase;
 }
 
 .custom-tbody tr {
@@ -537,7 +395,6 @@ thead td {
 }
 
 @media screen and (max-width: 1275px) {
-    .pagination-container,
     .table-container {
         max-width: none;
     }
@@ -551,28 +408,6 @@ thead td {
     thead td {
         padding: 15px;
     }
-}
-
-@media screen and (max-width: 700px) {
-    .pagination-container {
-        display: grid;
-        gap: 30px;
-        justify-content: left;
-    }
-
-    .pagination-numbers {
-        justify-content: start;
-    }
-}
-
-.settings-forms-container {
-    display: grid;
-    gap: 30px;
-}
-
-.input-container {
-    display: grid;
-    gap: 15px;
 }
 
 .table-container {
@@ -643,11 +478,9 @@ thead td {
 
 @keyframes fadeInUp {
     from {
-        -webkit-transform: translate3d(0, 40px, 0);
         transform: translate3d(0, 40px, 0);
     }
     to {
-        -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
         opacity: 1;
     }
@@ -655,11 +488,9 @@ thead td {
 
 @-webkit-keyframes fadeInUp {
     from {
-        -webkit-transform: translate3d(0, 40px, 0);
         transform: translate3d(0, 40px, 0);
     }
     to {
-        -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
         opacity: 1;
     }
