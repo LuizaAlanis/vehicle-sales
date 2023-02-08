@@ -128,9 +128,3 @@ cd server
 ```shell
 npm run dev start
 ```
-
-- Run docker for database
-
-```shell
-docker-compose up -d
-```
