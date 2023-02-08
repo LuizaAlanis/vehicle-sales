@@ -180,7 +180,7 @@ function ProductTable(props) {
                         </table>
                     </div>
                     <div>
-                        Total de registros: {totalNumber}
+                        Total number of vehicles: {totalNumber}
                     </div>
                 </>
                 :
