@@ -46,6 +46,7 @@ class LoginComponent extends React.Component {
         ).then(
             (response) => {
                 Cookies.set('Authorization', response.data.token);
+                window.location = routes.ADMIN;
             },
             (error) => {
                 this.setState({

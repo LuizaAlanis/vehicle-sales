@@ -116,7 +116,7 @@ body::-webkit-scrollbar-thumb {
 /* CATEGORY */
 
 .main {
-    padding: 30px 5vw 0;
+    padding: 30px 5vw;
 }
 
 .category-container {
@@ -731,7 +731,7 @@ footer {
     justify-content: center;
     letter-spacing: 3px;
     font-size: 0.9rem;
-    position: absolute;
+    position: relative;
     bottom: 0;
 }
 

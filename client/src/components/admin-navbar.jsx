@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 
 function logout() {
     Cookies.remove('Authorization');
+    window.location = routes.ROOT;
 }
 
 function Navbar() {

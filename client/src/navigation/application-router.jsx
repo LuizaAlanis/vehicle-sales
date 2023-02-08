@@ -36,9 +36,7 @@ function ApplicationRouter() {
                 </Suspense>
             </MainComponent>
             <ToastContainer/>
-            <footer>
-                made by Luiza Alanis, 2022.
-            </footer>
+
         </Router>
     );
 }
