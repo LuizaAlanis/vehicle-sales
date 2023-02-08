@@ -116,7 +116,7 @@ body::-webkit-scrollbar-thumb {
 /* CATEGORY */
 
 .main {
-    padding: 30px 5vw;
+    padding: 30px 5vw 0;
 }
 
 .category-container {
@@ -722,19 +722,17 @@ thead td {
 
 footer {
     margin-top: 100px;
-    padding: 20px;
     color: var(--soft-grey);
     width: 100vw;
-    height: 30px;
+    height: 2.5rem;
     background-color: var(--dark-bg);
-    z-index: 10;
-    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    left: 0;
     letter-spacing: 3px;
     font-size: 0.9rem;
+    position: absolute;
+    bottom: 0;
 }
 
 .product-preview{

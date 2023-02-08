@@ -34,9 +34,6 @@ function Home() {
                     image={ProductHelper.image(vehicle)}/>
             })}
         </section>
-        <footer>
-            made by Luiza Alanis, 2022.
-        </footer>
     </div>
 }
 
