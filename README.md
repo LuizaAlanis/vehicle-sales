@@ -20,7 +20,7 @@
 <br/>
 
 <a id="1"></a>
-## 1 - Project requirements
+## 1. Project requirements
 
 - [x] Home page with vehicle showcase
 
@@ -61,7 +61,7 @@ PUT /api/vehicle/update/:vehicleId
 <br/>
 
 <a id="2"></a>
-## 2 - Clone the project
+## 2. Clone the project
 ```shell
 git@github.com:LuizaAlanis/vehicle-sales.git
 ```
@@ -70,7 +70,7 @@ git@github.com:LuizaAlanis/vehicle-sales.git
 <br/>
 
 <a id="3"></a>
-## 3 - Configure database
+## 3. Configure database
 
 <br/>
 
@@ -208,7 +208,7 @@ SELECT * FROM vehicles;
 <br/>
 
 <a id="4"></a>
-## 4 - Run Node service (back-end)
+## 4. Run Node service (back-end)
 
 - On Server folder...
 
@@ -232,7 +232,7 @@ npm run dev start
 <br/>
 
 <a id="5"></a>
-## 5 - Run React (front-end)
+## 5. Run React (front-end)
 
 - On Client folder...
 
