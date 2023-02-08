@@ -4,6 +4,7 @@ import * as Authentication from '../helpers/authentication-helper';
 import AuthenticationService from '../service/authentication-service';
 import routes from '../navigation/routes';
 import Cookies from 'js-cookie';
+import ProductService from "../service/product-service";
 
 class LoginComponent extends React.Component {
     constructor(props) {
@@ -34,27 +35,17 @@ class LoginComponent extends React.Component {
     authenticate(event) {
         event.preventDefault()
 
-        // Validates if username and password are not empty.
-        if (!this.state.username || !this.state.password) {
-            this.setState({
-                ...this.state,
-                loading: false,
-                messageError: 'Something went wrong',
-            });
-            return;
-        }
+        const username = event.target[0].value;
+        const password = event.target[1].value;
 
-        this.setState({...this.state, loading: true, messageError: ''});
-
-        AuthenticationService.authenticate(
-            this.state.username,
-            this.state.password
+        ProductService.auth(
+            {
+                username,
+                password
+            }
         ).then(
             (response) => {
-                this.setState({...this.state, loading: false});
-                Cookies.set('oauth2Token', response.data.access_token);
-                Cookies.set('oauth2RefreshToken', response.data.refresh_token);
-                localStorage.setItem('loggedIn', 'true');
+                Cookies.set('Authorization', response.data.token);
             },
             (error) => {
                 this.setState({
@@ -72,19 +63,17 @@ class LoginComponent extends React.Component {
                 <div className="banner-login">
                 </div>
                 <div className="form-login">
-                    <form className="form" id="loginForm" onSubmit={this.authenticate}>
+                    <form className="form" id="loginForm" onSubmit={(event) => this.authenticate(event)}>
                         <h2>Login</h2>
                         <br/><br/>
                         <input type="text"
                                name='username'
                                placeholder='Username'
-                               value={this.state.username}
                                required
                         />
                         <input type="password"
                                name='password'
                                placeholder='Password'
-                               value={this.state.password}
                                required
                         />
                         <button type="submit" className="primary-button">Enter</button>

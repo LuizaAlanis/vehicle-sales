@@ -1,7 +1,7 @@
 import API from '../config/api';
 import * as Authentication from '../helpers/authentication-helper';
 import Cookies from 'js-cookie';
-import { inflate } from "pako"
+import {inflate} from "pako"
 
 const REFRESH_TIMEOUT = 300000;
 
@@ -40,25 +40,23 @@ const AuthenticationService = {
     },
 
     decodeAndInflateToken: (oauth2Token) => {
-        const compressedToken =  AuthenticationService.decodeAndInflateToken(oauth2Token);
+        const compressedToken = AuthenticationService.decodeAndInflateToken(oauth2Token);
         if (compressedToken.authorities) {
             return compressedToken; // Not compressed, possible old auth version
         }
         const compressedBody = atob(compressedToken.compressed)
         const compressedBodyBin = Uint8Array.from(compressedBody, c => c.charCodeAt(0))
-        const bodyBin = inflate(compressedBodyBin, { to: 'string' })
+        const bodyBin = inflate(compressedBodyBin, {to: 'string'})
         return JSON.parse(bodyBin);
     },
+
     authenticate(username, password) {
         return API.post(
-            '/login/authenticate',
-            { username, password },
+            '/login',
+            {username, password},
             {
                 headers: {
                     'Content-Type': 'application/json',
-                    'SuperSim-Persistent-Log': JSON.stringify({
-                        device: { kind: 1, code: null },
-                    }),
                 },
             }
         );
@@ -69,7 +67,7 @@ const AuthenticationService = {
             headers: {
                 'Content-Type': 'application/json',
                 'SuperSim-Persistent-Log': JSON.stringify({
-                    device: { kind: 1, code: null },
+                    device: {kind: 1, code: null},
                 }),
             },
         });

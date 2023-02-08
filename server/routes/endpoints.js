@@ -158,7 +158,7 @@ router.get("/vehicles", (req, res) => {
 
 router.get("/vehicle/:vehicleId", async (req, res) => {
 
-    const token = req.header('x-auth-token');
+    const token = req.header('Authorization');
 
     if (!token) return res.status(401).send('Access denied. No token provided.');
 
@@ -183,7 +183,7 @@ router.get("/vehicle/:vehicleId", async (req, res) => {
 
 router.delete("/vehicle/remove/:vehicleId", async (req, res) => {
 
-    const token = req.header('x-auth-token');
+    const token = req.header('Authorization');
 
     if (!token) return res.status(401).send('Access denied. No token provided.');
 
@@ -206,7 +206,7 @@ router.delete("/vehicle/remove/:vehicleId", async (req, res) => {
 
 router.post("/vehicle/register", async (req, res) => {
 
-    const token = req.header('x-auth-token');
+    const token = req.header('Authorization');
 
     if (!token) return res.status(401).send('Access denied. No token provided.');
 
@@ -230,7 +230,7 @@ router.post("/vehicle/register", async (req, res) => {
 
 router.put("/vehicle/update/:vehicleId", async (req, res) => {
 
-    const token = req.header('x-auth-token');
+    const token = req.header('Authorization');
 
     if (!token) return res.status(401).send('Access denied. No token provided.');
 
@@ -253,7 +253,7 @@ router.put("/vehicle/update/:vehicleId", async (req, res) => {
 });
 
 router.get('/token', async (req, res) => {
-    const token = req.header('x-auth-token');
+    const token = req.header('Authorization');
 
     if (!token) return res.status(401).send('Access denied. No token provided.');
 

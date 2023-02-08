@@ -25,6 +25,12 @@ const  ProductService = {
      */
     deleteVehicle: (id) => {
         return API.delete(`/vehicle/remove/${id}`);
+    },
+    /**
+     * @description Auth
+     */
+    auth: ({username, password}) => {
+        return API.post(`/login`, {username, password});
     }
 };
 

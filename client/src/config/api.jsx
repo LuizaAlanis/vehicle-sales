@@ -28,10 +28,8 @@ api.interceptors.response.use(
 
         if (statusCode === UNAUTHORIZED) {
             localStorage.removeItem('loggedIn');
-            Cookies.remove('oauth2Token');
-            Cookies.remove('oauth2RefreshToken');
+            Cookies.remove('Authorization');
 
-            // if user dont click on button, redirect him
             setTimeout(() => {
                 window.location = '/';
             }, 5000);
@@ -43,20 +41,16 @@ api.interceptors.response.use(
 /* REQUEST INTERCEPTOR */
 api.interceptors.request.use(
     async (config) => {
-        const token = AuthenticationService.getCookie('oauth2Token');
-        const oauth2RefreshToken =
-            AuthenticationService.getCookie('oauth2RefreshToken');
+        const token = AuthenticationService.getCookie('Authorization');
 
         config.headers = {
             Accept: 'application/json, text/plain, */*',
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
         };
+
         if (Authentication.isAuthenticated()) {
-            config.headers.Cookie = `oauth2Token=${token}; oauth2RefreshToken=${oauth2RefreshToken}`;
-        }
-        if (Authentication.isAuthenticated()) {
-            config.headers.Authorization = `Bearer ${token}`;
+            config.headers.Authorization = `${token}`;
         }
         return config;
     },
