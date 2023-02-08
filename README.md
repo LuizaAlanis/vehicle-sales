@@ -16,6 +16,13 @@ cd client
 - Run the command:
 
 ```shell
+npm install
+```
+
+
+- Then:
+
+```shell
 npm start
 ```
 
