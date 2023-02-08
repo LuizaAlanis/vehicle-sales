@@ -17,10 +17,6 @@ function ProductTable(props) {
     const [vehicles, setVehicles] = useState([])
     const pages = Math.ceil(totalNumber / itemsPerPage)
 
-    const changeQuantity = (itemsPerPage) => {
-        setItemsPerPage(itemsPerPage)
-    }
-
     useEffect(() => {
         const fetchData = async () => {
             const response = await ProductService.getAllVehicles();
@@ -29,7 +25,7 @@ function ProductTable(props) {
             setVehicles(response.data)
         }
         fetchData()
-    }, [])
+    }, [vehicles, setVehicles])
 
     function first(event) {
         setCurrentPage(Number(event.target.value))
@@ -121,25 +117,6 @@ function ProductTable(props) {
                         }
                     />
 
-                    <div className="filter-container">
-                        <div className="portal-custom-select">
-                            <div className="label-container">
-                                <p className="silver label-same-size">Devices per page</p>
-                            </div>
-                            <select
-                                onChange={(event) => changeQuantity(event.target.value)}
-                                className="custom-select"
-                                value={itemsPerPage}
-                            >
-                                <option value="3">3</option>
-                                <option value="5">5</option>
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="30">30</option>
-                            </select>
-                        </div>
-                    </div>
-
                     <div className="table-container animated animatedFadeInUp fadeInUp">
                         <table className="custom-table">
                             <thead className="table-header">
@@ -202,39 +179,8 @@ function ProductTable(props) {
                             </tbody>
                         </table>
                     </div>
-
-                    <div className="pagination-container">
-                        <div className="pagination-bar">
-                            <button value={0} onClick={(event) => {
-                                first(event)
-                            }} disabled={currentPage === 0}>
-                                First
-                            </button>
-
-                            <button value={currentPage > 0 ? currentPage - 1 : currentPage} onClick={(event) => {
-                                previous(event)
-                            }} disabled={currentPage === 0}>
-                                <i className="bi bi-chevron-left"></i>
-                            </button>
-
-                            <button className="currentPage" value={currentPage}>{currentPage + 1}</button>
-
-                            <button value={currentPage < pages - 1 ? currentPage + 1 : currentPage}
-                                    onClick={(event) => {
-                                        next(event)
-                                    }} disabled={currentPage === pages - 1}>
-                                <i className="bi bi-chevron-right"></i>
-                            </button>
-
-                            <button value={pages - 1} onClick={(event) => {
-                                last(event)
-                            }} disabled={currentPage === pages - 1}>
-                                Last
-                            </button>
-                        </div>
-                        <div className="pagination-numbers">
-                            Total de registros: {totalNumber}
-                        </div>
+                    <div>
+                        Total de registros: {totalNumber}
                     </div>
                 </>
                 :
