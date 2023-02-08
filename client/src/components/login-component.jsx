@@ -1,7 +1,7 @@
 import React from 'react';
 import history from '../navigation/history';
 import * as Authentication from '../helpers/authentication-helper';
-import AuthenticationService from '../service/authentication-service';
+import ToastHelper from "../helpers/toast-helper";
 import routes from '../navigation/routes';
 import Cookies from 'js-cookie';
 import ProductService from "../service/product-service";
@@ -38,24 +38,21 @@ class LoginComponent extends React.Component {
         const username = event.target[0].value;
         const password = event.target[1].value;
 
-        ProductService.auth(
-            {
-                username,
-                password
-            }
-        ).then(
-            (response) => {
+        ToastHelper.showLoading(ProductService.auth({username, password}), {
+            success: 'Logged',
+            pending: 'Pending...',
+            error: {
+                notFound: 'Not found',
+                message: 'Invalid username or password'
+            },
+        })
+            .then(response => {
                 Cookies.set('Authorization', response.data.token);
                 window.location = routes.ADMIN;
-            },
-            (error) => {
-                this.setState({
-                    ...this.state,
-                    loading: false,
-                    messageError: 'Invalid password',
-                });
-            }
-        );
+            })
+            .catch(e => {
+                console.log(e)
+            });
     }
 
     render() {
