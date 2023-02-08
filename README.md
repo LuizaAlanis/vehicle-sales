@@ -96,8 +96,26 @@ INSERT INTO users (username, password) VALUES ('admin', '$2a$12$OMoWVjsi.Gr7oPN8
 ```
 ## 7) Insert data to vehicles table
 ```sql
-INSERT INTO vehicles (brand, model, image, price) VALUES ('VW', 'Polo', 'https://quatrorodas.abril.com.br/wp-content/uploads/2021/06/DB2021AU00471_medium-e1625065359538.jpg?quality=70&strip=info', 112000.0);
-INSERT INTO vehicles (brand, model, image, price) VALUES ('VW', 'Virtus', 'https://quatrorodas.abril.com.br/wp-content/uploads/2023/02/Novo-Virtus-Exclusive.jpg?quality=70&strip=info', 144000.0);
+INSERT INTO vehicles (image, brand, model, price)
+VALUES ('https://bit.ly/3JPRjGf', 'Chevrolet', 'Cruze', 90000),
+       ('https://bit.ly/3lcOODn', 'Nissan', 'Sentra', 70000),
+       ('https://bit.ly/3I6dEOh', 'Mitsubishi', 'Lancer', 80000),
+       ('https://bit.ly/3DRx6fk', 'Hyundai', 'Elantra', 75000),
+       ('https://bit.ly/3YfH6af', 'Kia', 'Rio', 68000),
+       ('https://bit.ly/3RG8Xho', 'Jeep', 'Cherokee', 110000),
+       ('https://bit.ly/3RKP49a', 'Dodge', 'Journey', 95000),
+       ('https://bit.ly/40EEyEf', 'Ram', '1500', 130000),
+       ('https://bit.ly/3RGWTfM', 'Chrysler', '300', 95000),
+       ('https://bit.ly/3DPcDaS', 'Fiat', 'Uno', 50000),
+       ('https://bit.ly/3DPcHaC', 'Peugeot', '208', 70000),
+       ('https://bit.ly/3Yg1Sqe', 'Renault', 'Clio', 60000),
+       ('https://bit.ly/3HGei3L', 'Citroen', 'C4', 70000),
+       ('https://bit.ly/3XdxA6i', 'Volkswagen', 'Golf', 80000),
+       ('https://bit.ly/3I4wZj0', 'BMW', '320i', 150000),
+       ('https://bit.ly/3I3xbip', 'Mercedes-Benz', 'C200', 200000),
+       ('https://bit.ly/3Yw9ept', 'Audi', 'A3', 130000),
+       ('https://bit.ly/3jJMdk3', 'Porsche', '911', 400000),
+       ('https://bit.ly/3JR0Pc8', 'Lamborghini', 'Huracan', 1500000);
 ```
 
 ## 8) Execute select to visualize all data
