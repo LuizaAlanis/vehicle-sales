@@ -9,6 +9,7 @@ class ManageProdutct extends React.Component {
         super(props);
         this.state = {
             product: props.product,
+            id: ProductHelper.id(props.product),
             brandInput: null,
             modelInput: null,
             imageInput: null,
@@ -39,12 +40,12 @@ class ManageProdutct extends React.Component {
     updateProduct = (event) => {
         event.preventDefault()
 
-        const id = ProductHelper.id(this.state.product)
+        const id = this.state.id
         const vehicle = {
             brand: event.target[0].value,
             model: event.target[1].value,
             image: event.target[2].value,
-            price: event.target[3].value.replace(/\D/g,'')
+            price: parseFloat(event.target[3].value.replace(/\D/g,''))
         }
         console.log(vehicle)
 

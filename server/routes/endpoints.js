@@ -237,7 +237,7 @@ router.put("/vehicle/update/:vehicleId", async (req, res) => {
     const isValid = isTokenValid(token);
 
     if(isValid){
-        const vehicleId = req.params.id
+        const vehicleId = req.params.vehicleId
         const { brand, model, image, price } = req.body;
 
         try{
