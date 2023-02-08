@@ -78,7 +78,7 @@ git@github.com:LuizaAlanis/vehicle-sales.git
 
 <br/>
 
-#### 1) Install postgres locally with following commands on linux ubuntu 20.4
+> Install postgres locally with following commands on linux ubuntu 20.4
 
 a) Install wget and ca-certificates
 ```bash
@@ -102,7 +102,7 @@ sudo apt install postgresql postgresql-contrib
 ```
 <br/>
 
-#### 2) Check if active
+> Check if active
 
 Check the status of the PostgreSQL service
 ```bash
@@ -111,7 +111,7 @@ service postgresql status
 
 <br/>
 
-#### 3) Start server
+> Start server
 
 Start the PostgreSQL server as the postgres user
 ```bash
@@ -120,7 +120,7 @@ sudo -u postgres psql
 
 <br/>
 
-#### 4) Connect to database
+> Connect to database
 
 a) Get information about the current connection
 ```bash
@@ -141,7 +141,7 @@ d) Connect to the `vehicle_sales` database
 
 <br/>
 
-#### 5) Create tables for this project
+> Create tables for this project
 
 a) Create a table named `users` with columns `id`, `username`, and `password`
 ```sql
@@ -154,7 +154,7 @@ CREATE TABLE vehicles (id SERIAL PRIMARY KEY, brand VARCHAR, model VARCHAR, imag
 
 <br/>
 
-#### 6) Insert data to user table
+> Insert data to user table
 
 Insert a row into the `users` table with the username `admin` and the password is 123456789 with bcrypt hash `$2a$12$OMoWVjsi.Gr7oPN8OyuPa.my./uVsi2K6W7NsXoS0wtcfAtAwVK2G`
 ```sql
@@ -163,7 +163,7 @@ INSERT INTO users (username, password) VALUES ('admin', '$2a$12$OMoWVjsi.Gr7oPN8
 
 <br/>
 
-#### 7) Insert data to vehicles table
+> Insert data to vehicles table
 
 ```sql
 INSERT INTO vehicles (image, brand, model, price)
@@ -190,7 +190,7 @@ VALUES ('https://bit.ly/3JPRjGf', 'Chevrolet', 'Cruze', 90000),
 
 <br/>
 
-#### 8) Execute select to visualize all data
+> Execute select to visualize all data
 
 ```sql
 SELECT * FROM vehicles;
