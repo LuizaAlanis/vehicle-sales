@@ -6,7 +6,7 @@ const { Client } = require("pg");
 const router = express.Router();
 
 /* run \conninfo to verify */
-const connectionString = "postgresql://postgres:123456@localhost:5432/postgres";
+const connectionString = "postgresql://postgres:123456@localhost:5432/vehicle_sales";
 
 const secret = 'supersecret';
 
