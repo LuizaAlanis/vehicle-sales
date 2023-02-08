@@ -9,7 +9,7 @@
 
 <br/>
 
-## :round_pushpin: README Roudmap
+## :round_pushpin: README Roadmap
 
 1. [Check on project requiriments](#1) 
 2. [Clone the project](#2)
