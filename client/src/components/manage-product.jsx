@@ -45,7 +45,7 @@ class ManageProdutct extends React.Component {
             brand: event.target[0].value,
             model: event.target[1].value,
             image: event.target[2].value,
-            price: parseFloat(event.target[3].value.replace(/\D/g,''))
+            price: event.target[3].value.replace(/\D/g,'')
         }
         console.log(vehicle)
 

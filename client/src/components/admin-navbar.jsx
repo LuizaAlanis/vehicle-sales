@@ -1,6 +1,11 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import routes from "../navigation/routes";
+import Cookies from "js-cookie";
+
+function logout() {
+    Cookies.remove('Authorization');
+}
 
 function Navbar() {
     return (
@@ -14,7 +19,8 @@ function Navbar() {
                 <li className="link">
                     <Link to={routes.ADMIN} target="_blank">Dashboard</Link>
                 </li>
-                <li className="link">
+                {/* TODO: Fix Routes*/}
+                <li className="link" onClick={logout}>
                     <Link to={routes.LOGIN}>Logout</Link>
                 </li>
             </ul>
