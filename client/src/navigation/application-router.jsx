@@ -12,6 +12,7 @@ import LoginComponent from "../components/login-component";
 import Home from "../pages/home";
 import Admin from "../pages/admin";
 import {ToastContainer} from "react-toastify";
+import PrivateRoute from "./private-route";
 
 function ApplicationRouter() {
     return (
@@ -30,7 +31,7 @@ function ApplicationRouter() {
                     <Switch>
                         <Route exact path={routes.LOGIN} component={withRouter(LoginComponent)}/>
                         <Route exact path={routes.ROOT} component={Home}/>
-                        <Route exact path={routes.ADMIN} component={Admin}/>
+                        <PrivateRoute exact path={routes.ADMIN} component={Admin}/>
                         <Route component={NotFound}/>
                     </Switch>
                 </Suspense>
