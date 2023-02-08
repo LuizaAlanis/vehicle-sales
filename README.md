@@ -1,38 +1,84 @@
-# :car: Vehicle Sales
+[![Typing SVG](https://readme-typing-svg.demolab.com/?lines=Vehicle+sales;Full+Stack+Project)](https://git.io/typing-svg)
+# :car: :palm_tree: :car: :city_sunrise:
 
-## :octocat: Clone the project
+<br/>
+
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+
+<br/>
+
+## :round_pushpin: README Roudmap
+
+1. [Check on project requiriments](#1) 
+2. [Clone the project](#2)
+3. [Configure postgre database](#3) 
+4. [Run Node service (back-end)](#4) 
+5. [Run React (front-end)](#5) 
+
+<br/>
+
+<a id="1"></a>
+## 1 - Project requirements
+
+- [x] Home page with vehicle showcase
+
+![alt text](https://github.com/LuizaAlanis/vehicle-sales/blob/master/home-page.png?v=4&h=300&w=300&fit=cover&mask=circle&maxage=7d)
+
+<br/>
+
+- [x] Sort vehicles by price, from cheapest to most expensive.
+```sql
+SELECT * FROM vehicles ORDER BY price ASC
+```
+
+- [x] Admin panel with JWT authentication.
+```javascript
+if (!token) return res.status(401).send('Access denied. No token provided.');
+```
+
+- [x] Private requests need authentication token. Examples:
+```http
+POST /api/vehicle/register
+DELETE /api/vehicle/remove/:vehicleId
+PUT /api/vehicle/update/:vehicleId
+```
+- [x] Complete CRUD
+
+- [x] The vehicle entity contains: id, brand, model, image and price
+
+ id |     brand     |  model   |           image           |  price  
+----|---------------|----------|---------------------------|----------
+  4 | Chevrolet     | Cruze    | https://bit.ly/3JPRjGf    |   90000
+  5 | Nissan        | Sentra   | https://bit.ly/3lcOODn    |   70000
+
+
+- [x] API REST
+- [x] Data persistence in database
+
+<br/>
+<br/>
+
+<a id="2"></a>
+## 2 - Clone the project
 ```shell
 git@github.com:LuizaAlanis/vehicle-sales.git
 ```
 
-## :art: Run Front-end
+<br/>
+<br/>
 
-- On Client folder...
+<a id="3"></a>
+## 3 - Configure database
 
-```shell
-cd client
-```
+<br/>
 
-- Run the command:
+### Postgres step by step
 
-```shell
-npm install
-```
+<br/>
 
-
-- Then:
-
-```shell
-npm start
-```
-
-Then open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-## Configure databse
-
-# Postgres step by step
-
-## 1) Install postgres locally with following commands on linux ubuntu 20.4
+#### 1) Install postgres locally with following commands on linux ubuntu 20.4
 
 a) Install wget and ca-certificates
 ```bash
@@ -54,19 +100,27 @@ e) Install PostgreSQL
 ```bash
 sudo apt install postgresql postgresql-contrib
 ```
-## 2) Check if active
+<br/>
 
-a) Check the status of the PostgreSQL service
+#### 2) Check if active
+
+Check the status of the PostgreSQL service
 ```bash
 service postgresql status
 ```
-## 3) Start server
 
-a) Start the PostgreSQL server as the postgres user
+<br/>
+
+#### 3) Start server
+
+Start the PostgreSQL server as the postgres user
 ```bash
 sudo -u postgres psql
 ```
-## 4) Connect to database
+
+<br/>
+
+#### 4) Connect to database
 
 a) Get information about the current connection
 ```bash
@@ -84,7 +138,10 @@ d) Connect to the `vehicle_sales` database
 ```postgres
 \c vehicle_sales
 ```
-## 5) Create tables for this project
+
+<br/>
+
+#### 5) Create tables for this project
 
 a) Create a table named `users` with columns `id`, `username`, and `password`
 ```sql
@@ -95,13 +152,19 @@ b) Create a table named `vehicles` with columns `id`, `brand`, `model`, `value`,
 CREATE TABLE vehicles (id SERIAL PRIMARY KEY, brand VARCHAR, model VARCHAR, image VARCHAR, price FLOAT);
 ```
 
-## 6) Insert data to user table
+<br/>
 
-a) Insert a row into the `users` table with the username `admin` and the password is 123456789 with bcrypt hash `$2a$12$OMoWVjsi.Gr7oPN8OyuPa.my./uVsi2K6W7NsXoS0wtcfAtAwVK2G`
+#### 6) Insert data to user table
+
+Insert a row into the `users` table with the username `admin` and the password is 123456789 with bcrypt hash `$2a$12$OMoWVjsi.Gr7oPN8OyuPa.my./uVsi2K6W7NsXoS0wtcfAtAwVK2G`
 ```sql
 INSERT INTO users (username, password) VALUES ('admin', '$2a$12$OMoWVjsi.Gr7oPN8OyuPa.my./uVsi2K6W7NsXoS0wtcfAtAwVK2G');
 ```
-## 7) Insert data to vehicles table
+
+<br/>
+
+#### 7) Insert data to vehicles table
+
 ```sql
 INSERT INTO vehicles (image, brand, model, price)
 VALUES ('https://bit.ly/3JPRjGf', 'Chevrolet', 'Cruze', 90000),
@@ -125,22 +188,27 @@ VALUES ('https://bit.ly/3JPRjGf', 'Chevrolet', 'Cruze', 90000),
        ('https://bit.ly/3JR0Pc8', 'Lamborghini', 'Huracan', 1500000);
 ```
 
-## 8) Execute select to visualize all data
+<br/>
+
+#### 8) Execute select to visualize all data
+
 ```sql
 SELECT * FROM vehicles;
 ```
 
 - The output will look like this:
 
-```markdown
- id | brand | model  |                                                           image                                                           | price  
-----+-------+--------+---------------------------------------------------------------------------------------------------------------------------+--------
-  1 | VW    | Polo   | https://quatrorodas.abril.com.br/wp-content/uploads/2021/06/DB2021AU00471_medium-e1625065359538.jpg?quality=70&strip=info | 112000
-  2 | VW    | Virtus | https://quatrorodas.abril.com.br/wp-content/uploads/2023/02/Novo-Virtus-Exclusive.jpg?quality=70&strip=info               | 144000
-(2 rows)
-```
+ id |     brand     |  model   |           image           |  price  
+----|---------------|----------|---------------------------|----------
+  4 | Chevrolet     | Cruze    | https://bit.ly/3JPRjGf    |   90000
+  5 | Nissan        | Sentra   | https://bit.ly/3lcOODn    |   70000
 
-## :game_die: Run Back-end
+
+<br/>
+<br/>
+
+<a id="4"></a>
+## 4 - Run Node service (back-end)
 
 - On Server folder...
 
@@ -151,5 +219,38 @@ cd server
 - Run the command:
 
 ```shell
+npm install
+```
+
+- Then:
+
+```shell
 npm run dev start
 ```
+
+<br/>
+<br/>
+
+<a id="5"></a>
+## 5 - Run React (front-end)
+
+- On Client folder...
+
+```shell
+cd client
+```
+
+- Run the command:
+
+```shell
+npm install
+```
+
+
+- Then:
+
+```shell
+npm start
+```
+
+- Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
