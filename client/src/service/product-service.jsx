@@ -17,8 +17,8 @@ const  ProductService = {
     /**
      * @description Update
      */
-    updateVehicle: (body) => {
-        return API.post(`/vehicle/register`, body);
+    updateVehicle: (id, body) => {
+        return API.put(`/vehicle/update/${id}`, body);
     },
     /**
      * @description Delete
