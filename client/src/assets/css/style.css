@@ -189,11 +189,6 @@ body::-webkit-scrollbar-thumb {
 /* RESPONSIVE */
 
 @media only screen and (max-width: 600px) {
-    nav {
-        display: grid;
-        gap: 30px;
-    }
-
     .vehicle {
         margin: 0 auto;
     }

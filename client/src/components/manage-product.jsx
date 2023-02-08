@@ -90,7 +90,7 @@ class ManageProdutct extends React.Component {
                                onChange={(event) => this.handleImageChange(event)}/>
                         <br/>
                         <label>PRICE</label>
-                        <input className="input-text" value={this.state.priceInput || ProductHelper.price(this.state.product)}
+                        <input className="input-text" value={this.state.priceInput || ProductHelper.price_without_formatting(this.state.product)}
                                onChange={(event) => this.handlePriceChange(event)}/>
                         <br/>
                         <button className="primary-button" type="submit">Update</button>

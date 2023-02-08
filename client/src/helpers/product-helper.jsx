@@ -22,6 +22,10 @@ const ProductHelper = {
             && product.price
             && product.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
     },
+    price_without_formatting: (product) => {
+        return product
+            && product.price;
+    },
 }
 
 export default ProductHelper;
