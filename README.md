@@ -16,6 +16,7 @@
 3. [Configure postgre database](#3) 
 4. [Run Node service (back-end)](#4) 
 5. [Run React (front-end)](#5) 
+6. [Bonus: Project video](#6)
 
 <br/>
 
@@ -254,3 +255,11 @@ npm start
 ```
 
 - Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+<br/>
+<br/>
+
+<a id="6"></a>
+## :rotating_light: Bonus: Project video
+
+[![Watch the video](https://i.ytimg.com/an_webp/4HAi3paapVY/mqdefault_6s.webp?du=3000&sqp=CNjokJ8G&rs=AOn4CLCg6bvI3I5QdTRQubvCZxBThlLxcA)](https://youtu.be/4HAi3paapVY)
